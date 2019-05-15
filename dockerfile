@@ -68,6 +68,10 @@ RUN composer global require "squizlabs/php_codesniffer=*"
 # Install Envoy
 RUN composer global require "laravel/envoy=~1.0"
 
+RUN curl -LO https://deployer.org/deployer.phar && \
+  mv deployer.phar /usr/local/bin/dep && \
+  chmod +x /usr/local/bin/dep 
+
 # Cleanup dev dependencies
 RUN apk del -f .build-deps
 
